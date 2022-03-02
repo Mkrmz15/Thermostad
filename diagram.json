@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "author": "MERT KORKMAZ",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 18.83, "left": -151.77, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -125.49,
+      "left": -198.02,
+      "attrs": { "temperature": "16.6", "humidity": "20.5" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 259.28,
+      "left": -134.34,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -100.52,
+      "left": 213.47,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -35.97,
+      "left": 212.65,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -119,
+      "left": -23.68,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -87.14,
+      "left": -82.93,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:3.3V", "red", [ "v234.52", "h301.47" ] ],
+    [ "dht1:GND", "uno:GND.1", "black", [ "v6.65", "h116.88" ] ],
+    [ "dht1:SDA", "uno:4", "green", [ "v8.79", "h243.86" ] ],
+    [ "uno:A5", "lcd1:SCL", "green", [ "v44.82", "h-244.57", "v64.24" ] ],
+    [ "uno:A4", "lcd1:SDA", "blue", [ "v38.48", "h-246.18", "v61.86" ] ],
+    [ "uno:5V", "lcd1:VCC", "red", [ "v31.34", "h-170.49", "v55.51" ] ],
+    [ "uno:GND.2", "lcd1:GND", "black", [ "v24.99", "h-186.33", "v54.72" ] ],
+    [ "btn1:2.l", "uno:GND.3", "black", [ "h-86.47", "v292.36", "h-102.3" ] ],
+    [ "btn2:2.l", "uno:GND.3", "black", [ "h-78.16", "v236.12", "h-109.79" ] ],
+    [ "btn2:1.l", "uno:2", "red", [ "h0" ] ],
+    [ "btn1:1.l", "uno:7", "red", [ "h0" ] ],
+    [ "led1:C", "r1:2", "black", [ "v0" ] ],
+    [ "led1:A", "uno:6", "green", [ "v11.23", "h48.26" ] ],
+    [ "r1:1", "uno:GND.1", "black", [ "v23.34", "h44.85" ] ]
+  ]
+}
